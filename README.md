@@ -15,7 +15,8 @@
 -Docker 24.0.2
 -Mysql 8.0.34
 
-## テーブル設計
+## ER図
+<img width="377" alt="image" src="https://github.com/sakurav12vsnr/advance-test/assets/138364593/e37f309b-0991-4399-9545-0afb87344d08">
 
 
 
