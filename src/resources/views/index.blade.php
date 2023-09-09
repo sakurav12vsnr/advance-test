@@ -10,7 +10,7 @@
     <div class="contact-form__heading">
         <h2>お問い合わせ</h2>
     </div>
-    <form class="form action="contacts/confirm" method="post">
+    <form class="form action="contacts/confirm" method="post" class="h-adr">
         @csrf
         <div class="form__group">
             <div class="form__group-title">
@@ -19,13 +19,13 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="text" name="family_name" value="{{ old('family_name') }}" />
+                    <input type="text" autocomplete="family-name" name="last-name" value="{{ old('last-name') }}" />
                         <p class="exemplar">例）山田</p>
-                    <input type="text" name="given_name" value="{{ old('given_name') }}" />
+                    <input type="text" name="first-name" autocomplete="given-name" value="{{ old('first-name') }}" />
                         <p class="exemplar">例）太郎</p>
                 </div>
                 <div class="form__error">
-                    @error('family_name', 'given_name')
+                    @error('last-name', 'first-name')
                     {{ $message }}
                     @enderror
                 </div>
@@ -38,13 +38,8 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--radio">
-                    <input type="radio" name="gender" value="male" checked>男性
-                    <input type="radio" name="gender" value="female">女性
-                </div>
-                <div class="form__error">
-                @error('gender')
-                {{ $message }}
-                @enderror
+                    <input type="radio" name="gender" value="1" id="male" checked />男性
+                    <input type="radio" name="gender" value="2" id="female" />女性
                 </div>
             </div>
         </div>
@@ -72,11 +67,12 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    〒<input type="postal_code" name="postal_code" size="8" maxlength="8" autocomplete="shipping postal-code" value="{{ old('postal_code') }}" />
+                    〒<input type="hidden" class="p-country-name" value="Japan">
+                    <input type="text" class="p-postal-code" name="postcode" size="8" maxlength="8" value="{{ old('postcode') }}" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');"z />
                         <p class="exemplar">例）123-4567</p>
                 </div>
                 <div class="form__error">
-                    @error('postal_code')
+                    @error('postcode')
                     {{ $message }}
                     @enderror
                 </div>
@@ -89,7 +85,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="address" name="address" autocomplete="shipping-address">
+                    <input type="address" name="address" value="{{ old('address') }}" />
                         <p class="exemplar">例）東京都渋谷区千駄ヶ谷1-2-3</p>
                 </div>
                 <div class="form__error">
@@ -117,7 +113,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--textarea">
-                    <textarea name="content">{{ old('content') }}</textarea>
+                    <textarea name="opinion" maxlength="120">{{ old('opinion') }}</textarea>
                 </div>
             </div>
         </div>
