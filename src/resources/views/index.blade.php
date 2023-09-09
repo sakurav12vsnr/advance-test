@@ -10,7 +10,7 @@
     <div class="contact-form__heading">
         <h2>お問い合わせ</h2>
     </div>
-    <form class="form action="contacts/confirm" method="post" class="h-adr">
+    <form class="form action="/contacts/confirm" method="post" class="h-adr">
         @csrf
         <div class="form__group">
             <div class="form__group-title">
