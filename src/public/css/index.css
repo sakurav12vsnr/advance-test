@@ -1,12 +1,18 @@
-.contact-form__content {
-    margin: 0 auto;
-    padding: 30px 15px;
-    max-width: 1230px;
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.contact-form__heading {
-    margin-bottom: 40px;
-    text-align: center;
+body {
+    padding: 50px;
+}
+
+h2 {
+    font-size: 25px;
+    padding-bottom: 50px;
+    text-align: center
 }
 
 .form {
@@ -21,8 +27,15 @@
     margin-bottom: 15px;
 }
 
+.h-adr {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
 .form__label--item {
     font-weight: bold;
+    width: 150px;
 }
 
 .form__label--required {
@@ -30,6 +43,45 @@
     padding: 4px 6px;
     border-radius: 3px;
     color: #ff0000;
+    vertical-align: top;
+}
+
+input {
+    height: 40px;
+    border: 1px solid #c7c7c7;
+    border-radius: 5px;
+}
+
+.last-name,
+.first-name {
+    width: 38.3%;
+}
+
+.gender input {
+    width: 50px;
+}
+
+.gender:first-of-type {
+    margin-right: 30px;
+}
+
+.email,
+.address,
+.building_name,
+.opinion {
+    width: 77%;
+}
+
+.postcode {
+    width: 70.2%;
+}
+
+textarea {
+    vertical-align: top;
+    border: 1px solid #c7c7c7;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 10px;
 }
 
 .form__error {

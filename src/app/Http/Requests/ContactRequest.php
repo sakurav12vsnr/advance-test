@@ -24,41 +24,31 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'family_name'=> ['required', 'string','max:255'],
-            'given_name'=> ['required', 'string', 'max:255'],
-            'gender'=> ['required', 'string']
-            'email'=> ['required', 'string', 'max:255'],
-            'postal_code'=> ['required', 'numeric', 'max:8'],
-            'address'=> ['required', 'string', 'max:255'],
-            'building_name'=> ['string', 'max:255'],
-            'content'=> ['required', 'text', 'max:120'],
+            'last-name'=> 'required',
+            'first-name'=> 'required',
+            'gender'=> 'required',
+            'email'=> 'required|email',
+            'postcode'=> 'required|regex:/^[0-9]{3}-[0-9]{4}$/',
+            'address'=> 'required',
+            'building_name'=> 'nullable',
+            'opinion'=> 'required|max:120',
         ];
     }
 
     public function messages()
     {
         return [
-            'family_name.required'=> '名字を入力してください',
-            'family_name.string'=> '名字を文字列で入力してください',
-            'family_name.max'=> '名字を255文字以下で入力してください',
-            'given_name.required'=> '名前を入力してください',
-            'given_name.string'=> '名前を文字列で入力してください',
-            'given_name.max'=> '名前を255文字以下で入力してください',
-            'gender.required'=> '性別を選択してください'
-            'email.required'=> 'メールアドレスを入力してください',
-            'email.string'=> 'メールアドレスを文字列で入力してください',
-            'email.max'=> 'メールアドレスを255文字以下で入力してください',
-            'postal_code.required'=> '郵便番号を入力してください',
-            'postal_code.numeric'=> '郵便番号を数値で入力してください',
-            'postal_code.max'=> '郵便番号を8文字で入力してください',
+            'last-name.required'=> '姓を入力してください',
+            'first-name.required'=> '名を入力してください',
+            'gender.required'=> '性別を選択してください',
+            'email.required'=> 'メールアドレス
+            を入力してください',
+            'email.email'=> 'メールアドレスは例の形式で入力してください',
+            'postcode.required'=> '郵便番号を入力してください',
+            'postcode.regex'=> '郵便番号は例の形式で入力してください',
             'address.required'=> '住所を入力してください',
-            'address.string'=> '住所を文字列で入力してください',
-            'address.max'=> '住所を255文字以下で入力してください',
-            'building_name.string'=> '住所を文字列で入力してください',
-            'building_names.max'=> '住所を255文字以下で入力してください',
-            'content.required'=> 'ご意見を入力してください',
-            'content.string'=> 'ご意見を文字列で入力してください',
-            'contents.max'=> 'ご意見を255文字以下で入力してください',
-        ]
+            'opinion.required'=> 'ご意見を入力してください',
+            'opinion.max'=> 'ご意見は120文字以内で入力してください',
+        ];
     }
 }
