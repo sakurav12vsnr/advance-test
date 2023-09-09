@@ -16,8 +16,8 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お名前</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="family_name" value="{{ $contact['family_name'] }}" readonly />
-                        <input type="text" name="given_name" value="{{ $contact['given_name'] }}" readonly />
+                        <input type="text" name="last-name" value="{{ $contact['last-name'] }}" readonly />
+                        <input type="text" name="first-name" value="{{ $contact['first-name'] }}" readonly />
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
@@ -35,7 +35,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">郵便番号</th>
                     <td class="confirm-table__text">
-                        <input type="postal_code" name="postal_code" value="{{ $contact['postal_code'] }}" readonly />
+                        <input type="postal_code" name="postal_code" value="{{ $contact['postcode'] }}" readonly />
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
@@ -53,7 +53,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">ご意見</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="content" value="{{ $contact['content'] }}" readonly />
+                        <input type="text" name="opinion" value="{{ $contact['opinion'] }}" readonly />
                     </td>
                 </tr>
             </table>
@@ -66,5 +66,6 @@
         </div>
     </form>
 </div>
+@endsection
 
 
